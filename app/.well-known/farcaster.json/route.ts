@@ -39,7 +39,7 @@ export async function GET() {
       "ogDescription": "Challenge yourself with randomized blockchain questions and earn your NFT certificate!",
       "ogImageUrl": `${URL}/og-image.png`,
       "buttonTitle": "Start Quiz Challenge", // Added: Missing button title
-      "noindex": false,,
+      "noindex": false,
       "castShareUrl": `${URL}/share`, // Added: Share URL for cast sharing
     }
   });
