@@ -24,7 +24,7 @@ export async function GET() {
       "splashImageUrl": `${URL}/splash.png`,
       "splashBackgroundColor": "#22c55e",
       "webhookUrl": `${URL}/api/webhook`,
-      "subtitle": "Master blockchain & crypto knowledge",
+      "subtitle": "Master crypto knowledge",
       "description": "Ultimate blockchain and cryptocurrency quiz platform. Test your knowledge with 15 randomized questions from 80+ topics and earn your exclusive NFT-style certificate!",
       "screenshotUrls": [
         `${URL}/screenshot1.png`,
@@ -32,13 +32,15 @@ export async function GET() {
         `${URL}/screenshot3.png`
       ],
       "primaryCategory": "education",
-      "tags": ["blockchain", "cryptocurrency", "quiz", "education", "nft", "certificate"],
+      "tags": ["blockchain", "cryptocurrency", "quiz", "education", "nft"],
       "heroImageUrl": `${URL}/hero.png`,
       "tagline": "Test your blockchain expertise",
-      "ogTitle": "BlockchainIQ - Master Blockchain & Crypto Knowledge",
+      "ogTitle": "BlockchainIQ Quiz Platform",
       "ogDescription": "Challenge yourself with randomized blockchain questions and earn your NFT certificate!",
       "ogImageUrl": `${URL}/og-image.png`,
+      "buttonTitle": "Start Quiz Challenge", // Added: Missing button title
       "noindex": false
+      "castShareUrl": `${URL}/share` // Added: Share URL for cast sharing
     }
   });
 }
