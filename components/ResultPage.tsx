@@ -55,7 +55,7 @@ export default function ResultPage({ userName, score, onRestart, questions, answ
             {passed ? (
               <div className="bg-primary-50 border border-primary-200 rounded-lg sm:rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 md:mb-8 mx-2 sm:mx-0">
                 <p className="text-primary-800 text-base sm:text-lg font-medium px-2 sm:px-0">
-                  🎉 Outstanding, {userName}! You're a certified Blockchain Expert!
+                  🎉 Outstanding, {userName}! You&#39;re a certified Blockchain Expert!
                 </p>
                 <p className="text-primary-600 mt-2 text-sm sm:text-base px-2 sm:px-0">
                   Your exclusive NFT-style certificate is ready! Share your blockchain mastery with the world!
@@ -67,7 +67,7 @@ export default function ResultPage({ userName, score, onRestart, questions, answ
                   Great effort, {userName}! Keep learning and challenge yourself again.
                 </p>
                 <p className="text-accent-600 mt-2 text-sm sm:text-base px-2 sm:px-0">
-                  Score 80% or higher to earn your exclusive BlockchainIQ NFT certificate. You're on the right path!
+                  Score 80% or higher to earn your exclusive BlockchainIQ NFT certificate. You&#39;re on the right path!
                 </p>
               </div>
             )}
