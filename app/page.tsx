@@ -11,19 +11,24 @@ import type { Question } from '@/data/questions';
 type AppState = 'home' | 'quiz' | 'result';
 
 export default function Home() {
-  const [state, setState] = useState<AppState>('home');
-  const [userName, setUserName] = useState('');
+  const [state, setState] = useState<AppState>("home");
+  const [userName, setUserName] = useState("");
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [score, setScore] = useState(0);
+
+  // Initialize MiniApp SDK
+  useEffect(() => {
+    sdk.actions.ready();
+  }, []);
 
   const handleStartQuiz = (name: string) => {
     setUserName(name);
     const dailyQuestions = getDailyQuestions();
     setQuestions(dailyQuestions);
     setAnswers(new Array(15).fill(-1)); // Updated to 15 questions
-    setState('quiz');
+    setState("quiz");
   };
 
   const handleAnswer = (answerIndex: number) => {
@@ -36,23 +41,23 @@ export default function Home() {
     } else {
       const finalScore = calculateScore(newAnswers, questions);
       setScore(finalScore);
-      setState('result');
+      setState("result");
     }
   };
 
   const handleRestart = () => {
-    setState('home');
+    setState("home");
     setCurrentQuestion(0);
     setAnswers([]);
     setScore(0);
-    setUserName('');
+    setUserName("");
     setQuestions([]);
   };
 
   return (
     <main className="min-h-screen">
-      {state === 'home' && <HomePage onStartQuiz={handleStartQuiz} />}
-      {state === 'quiz' && (
+      {state === "home" && <HomePage onStartQuiz={handleStartQuiz} />}
+      {state === "quiz" && (
         <QuizPage
           question={questions[currentQuestion]}
           currentQuestion={currentQuestion}
@@ -61,7 +66,7 @@ export default function Home() {
           selectedAnswer={answers[currentQuestion]}
         />
       )}
-      {state === 'result' && (
+      {state === "result" && (
         <ResultPage
           userName={userName}
           score={score}
