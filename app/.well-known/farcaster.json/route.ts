@@ -36,11 +36,9 @@ export async function GET() {
       "heroImageUrl": `${URL}/hero.png`,
       "tagline": "Test your blockchain expertise",
       "ogTitle": "BlockchainIQ Quiz Platform",
-      "ogDescription": "Challenge yourself with randomized blockchain questions and earn your NFT certificate!",
+      "ogDescription": "Challenge yourself with randomized blockchain questions and earn your certificate",
       "ogImageUrl": `${URL}/og-image.png`,
-      "buttonTitle": "Start Quiz Challenge", // Added: Missing button title
-      "noindex": false,
-      "castShareUrl": `${URL}/share`, // Added: Share URL for cast sharing
+      "noindex": false
     }
   });
 }
