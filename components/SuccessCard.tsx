@@ -288,97 +288,97 @@ export default function SuccessCard({ userName, score }: SuccessCardProps) {
       {/* Downloadable Card */}
       <div
         ref={cardRef}
-        className="bg-gradient-to-br from-slate-900 via-blue-900 to-primary-500 p-8 rounded-3xl shadow-2xl text-white text-center relative overflow-hidden border-4 border-primary-400"
+        className="bg-gradient-to-br from-slate-900 via-blue-900 to-primary-500 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl shadow-2xl text-white text-center relative overflow-hidden border-2 sm:border-4 border-primary-400 mx-2 sm:mx-4"
       >
         {/* NFT-style Background Pattern */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-4 left-4 w-16 h-16 border-2 border-primary-300 rounded-full animate-pulse"></div>
-          <div className="absolute top-8 right-8 w-12 h-12 border-2 border-accent-300 rounded-full animate-pulse delay-100"></div>
-          <div className="absolute bottom-4 left-8 w-8 h-8 border-2 border-primary-300 rounded-full animate-pulse delay-200"></div>
-          <div className="absolute bottom-8 right-4 w-20 h-20 border-2 border-accent-300 rounded-full animate-pulse delay-300"></div>
+          <div className="absolute top-2 left-2 sm:top-4 sm:left-4 w-8 h-8 sm:w-16 sm:h-16 border-2 border-primary-300 rounded-full animate-pulse"></div>
+          <div className="absolute top-4 right-4 sm:top-8 sm:right-8 w-6 h-6 sm:w-12 sm:h-12 border-2 border-accent-300 rounded-full animate-pulse delay-100"></div>
+          <div className="absolute bottom-2 left-4 sm:bottom-4 sm:left-8 w-4 h-4 sm:w-8 sm:h-8 border-2 border-primary-300 rounded-full animate-pulse delay-200"></div>
+          <div className="absolute bottom-4 right-2 sm:bottom-8 sm:right-4 w-10 h-10 sm:w-20 sm:h-20 border-2 border-accent-300 rounded-full animate-pulse delay-300"></div>
           
           {/* Geometric patterns */}
-          <div className="absolute top-1/4 left-1/4 w-6 h-6 bg-primary-400 transform rotate-45 animate-spin" style={{animationDuration: '8s'}}></div>
-          <div className="absolute top-3/4 right-1/4 w-4 h-4 bg-accent-400 transform rotate-45 animate-spin" style={{animationDuration: '6s'}}></div>
-          <div className="absolute top-1/2 left-1/6 w-3 h-3 bg-white transform rotate-45 animate-bounce"></div>
-          <div className="absolute top-1/3 right-1/6 w-5 h-5 bg-primary-300 transform rotate-45 animate-bounce delay-150"></div>
+          <div className="absolute top-1/4 left-1/4 w-4 h-4 sm:w-6 sm:h-6 bg-primary-400 transform rotate-45 animate-spin" style={{animationDuration: '8s'}}></div>
+          <div className="absolute top-3/4 right-1/4 w-3 h-3 sm:w-4 sm:h-4 bg-accent-400 transform rotate-45 animate-spin" style={{animationDuration: '6s'}}></div>
+          <div className="absolute top-1/2 left-1/6 w-2 h-2 sm:w-3 sm:h-3 bg-white transform rotate-45 animate-bounce"></div>
+          <div className="absolute top-1/3 right-1/6 w-3 h-3 sm:w-5 sm:h-5 bg-primary-300 transform rotate-45 animate-bounce delay-150"></div>
         </div>
 
         <div className="relative z-10">
           {/* Header */}
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="p-3 bg-gradient-to-r from-primary-400 to-accent-400 rounded-2xl shadow-lg">
-              <Crown className="w-10 h-10 text-white" />
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
+            <div className="p-2 sm:p-3 bg-gradient-to-r from-primary-400 to-accent-400 rounded-xl sm:rounded-2xl shadow-lg">
+              <Crown className="w-6 h-6 sm:w-8 md:w-10 sm:h-8 md:h-10 text-white" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-primary-200 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white to-primary-200 bg-clip-text text-transparent">
               BlockchainIQ
             </h2>
-            <div className="p-3 bg-gradient-to-r from-accent-400 to-primary-400 rounded-2xl shadow-lg">
-              <Gem className="w-10 h-10 text-white" />
+            <div className="p-2 sm:p-3 bg-gradient-to-r from-accent-400 to-primary-400 rounded-xl sm:rounded-2xl shadow-lg">
+              <Gem className="w-6 h-6 sm:w-8 md:w-10 sm:h-8 md:h-10 text-white" />
             </div>
           </div>
 
           {/* Certificate Title */}
-          <div className="mb-6">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-6 h-6 text-accent-300 animate-pulse" />
-              <div className="p-3 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl shadow-lg">
-                <Award className="w-8 h-8 text-white" />
+          <div className="mb-4 sm:mb-6">
+            <div className="flex items-center justify-center gap-1 sm:gap-2 mb-3 sm:mb-4">
+              <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-accent-300 animate-pulse" />
+              <div className="p-2 sm:p-3 bg-gradient-to-r from-primary-500 to-accent-500 rounded-lg sm:rounded-xl shadow-lg">
+                <Award className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <Sparkles className="w-6 h-6 text-primary-300 animate-pulse" />
+              <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-primary-300 animate-pulse" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-accent-300 to-primary-300 bg-clip-text text-transparent">
+            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 bg-gradient-to-r from-accent-300 to-primary-300 bg-clip-text text-transparent">
               NFT CERTIFICATE
             </h3>
-            <p className="text-xl font-semibold text-primary-200">🏆 BLOCKCHAIN EXPERT 🏆</p>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-primary-200">🏆 BLOCKCHAIN EXPERT 🏆</p>
           </div>
 
           {/* Name */}
-          <div className="mb-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-primary-200 to-accent-200 bg-clip-text text-transparent drop-shadow-lg">
+          <div className="mb-4 sm:mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-white via-primary-200 to-accent-200 bg-clip-text text-transparent drop-shadow-lg break-words px-2">
               {userName}
             </h1>
-            <div className="w-48 h-1 bg-gradient-to-r from-primary-400 to-accent-400 mx-auto rounded-full shadow-lg"></div>
+            <div className="w-32 sm:w-40 md:w-48 h-0.5 sm:h-1 bg-gradient-to-r from-primary-400 to-accent-400 mx-auto rounded-full shadow-lg"></div>
           </div>
 
           {/* Achievement */}
-          <div className="mb-6">
-            <p className="text-lg mb-4 text-primary-100">has mastered advanced blockchain concepts with</p>
-            <div className="relative mb-4">
-              <div className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-accent-300 via-white to-primary-300 bg-clip-text text-transparent drop-shadow-2xl">
+          <div className="mb-4 sm:mb-6">
+            <p className="text-sm sm:text-base md:text-lg mb-3 sm:mb-4 text-primary-100 px-2">has mastered advanced blockchain concepts with</p>
+            <div className="relative mb-3 sm:mb-4">
+              <div className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold bg-gradient-to-r from-accent-300 via-white to-primary-300 bg-clip-text text-transparent drop-shadow-2xl">
                 {score}%
               </div>
-              <div className="absolute inset-0 text-8xl md:text-9xl font-bold text-white/10 blur-sm">
+              <div className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white/10 blur-sm">
                 {score}%
               </div>
             </div>
-            <p className="text-xl font-semibold text-accent-200">MASTERY ACHIEVED</p>
+            <p className="text-base sm:text-lg md:text-xl font-semibold text-accent-200">MASTERY ACHIEVED</p>
           </div>
 
           {/* Date */}
-          <div className="text-primary-200 mb-4">
-            <p>{new Date().toLocaleDateString('en-US', { 
+          <div className="text-primary-200 mb-4 px-2">
+            <p className="text-sm sm:text-base">{new Date().toLocaleDateString('en-US', { 
               year: 'numeric', 
               month: 'long', 
               day: 'numeric' 
             })}</p>
-            <p className="text-sm mt-1">Certificate ID: BIQ-{Math.random().toString(36).substring(2, 10).toUpperCase()}</p>
+            <p className="text-xs sm:text-sm mt-1">Certificate ID: BIQ-{Math.random().toString(36).substring(2, 10).toUpperCase()}</p>
           </div>
 
           {/* Congratulatory Message */}
-          <div className="mt-6 p-6 bg-gradient-to-r from-primary-500/30 to-accent-500/30 rounded-2xl border border-primary-400/50 backdrop-blur-sm">
-            <p className="text-xl font-bold">🎉 Outstanding Achievement! 🎉</p>
-            <p className="text-lg mt-2">⚡ Blockchain Expert Certified 💎</p>
+          <div className="mt-4 sm:mt-6 p-4 sm:p-6 bg-gradient-to-r from-primary-500/30 to-accent-500/30 rounded-xl sm:rounded-2xl border border-primary-400/50 backdrop-blur-sm mx-2 sm:mx-0">
+            <p className="text-lg sm:text-xl font-bold">🎉 Outstanding Achievement! 🎉</p>
+            <p className="text-base sm:text-lg mt-2">⚡ Blockchain Expert Certified 💎</p>
           </div>
         </div>
       </div>
 
       {/* Download & Share Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-4 sm:mt-6 px-4 sm:px-0">
         <button
           onClick={downloadAsImage}
           disabled={downloadStatus === 'generating'}
-          className={`flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl ${
+          className={`flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base md:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl w-full sm:w-auto ${
             downloadStatus === 'generating'
               ? 'bg-gray-400 cursor-not-allowed'
               : downloadStatus === 'success'
@@ -390,39 +390,42 @@ export default function SuccessCard({ userName, score }: SuccessCardProps) {
         >
           {downloadStatus === 'generating' ? (
             <>
-              <div className="w-5 h-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
-              Generating...
+              <div className="w-4 h-4 sm:w-5 sm:h-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+              <span className="hidden sm:inline">Generating...</span>
+              <span className="sm:hidden">Saving...</span>
             </>
           ) : downloadStatus === 'success' ? (
             <>
-              <Trophy className="w-5 h-5" />
+              <Trophy className="w-4 h-4 sm:w-5 sm:h-5" />
               Saved!
             </>
           ) : downloadStatus === 'error' ? (
             <>
-              <Download className="w-5 h-5" />
+              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
               Try Again
             </>
           ) : (
             <>
-              <Download className="w-5 h-5" />
-              Save Certificate
+              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="hidden sm:inline">Save Certificate</span>
+              <span className="sm:hidden">Save</span>
             </>
           )}
         </button>
         
         <button
           onClick={shareText}
-          className="flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+          className="flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base md:text-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl w-full sm:w-auto"
         >
-          <Share2 className="w-5 h-5" />
-          Share Achievement
+          <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
+          <span className="hidden sm:inline">Share Achievement</span>
+          <span className="sm:hidden">Share</span>
         </button>
       </div>
       
       {/* Help Text for MiniApp Users */}
-      <div className="text-center mt-4 text-sm text-gray-600">
-        <p>📱 On mobile? Try long-pressing the image above to save it!</p>
+      <div className="text-center mt-3 sm:mt-4 px-4 sm:px-0">
+        <p className="text-xs sm:text-sm text-gray-600">📱 On mobile? Try long-pressing the certificate above to save it!</p>
       </div>
     </div>
   );

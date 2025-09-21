@@ -20,53 +20,53 @@ export default function ResultPage({ userName, score, onRestart, questions, answ
   const correctAnswers = answers.filter((answer, index) => answer === questions[index]?.correctAnswer).length;
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-2 sm:p-4">
       <div className="w-full max-w-4xl">
         {/* Success Card for Pass */}
         {passed && (
-          <div className="mb-8 animate-bounce-in">
+          <div className="mb-4 sm:mb-6 md:mb-8 animate-bounce-in">
             <SuccessCard userName={userName} score={score} />
           </div>
         )}
 
         {/* Results Summary */}
-        <div className="bg-white rounded-2xl border border-primary-100 shadow-xl p-8 animate-fade-in">
-          <div className="text-center mb-8">
-            <div className={`p-4 rounded-2xl w-fit mx-auto mb-6 ${
+        <div className="bg-white rounded-xl sm:rounded-2xl border border-primary-100 shadow-xl p-4 sm:p-6 md:p-8 animate-fade-in mx-2 sm:mx-0">
+          <div className="text-center mb-4 sm:mb-6 md:mb-8">
+            <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl w-fit mx-auto mb-4 sm:mb-6 ${
               passed ? 'bg-primary-500' : 'bg-accent-500'
             }`}>
-              <Trophy className="w-12 h-12 text-white" />
+              <Trophy className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white" />
             </div>
             
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4 px-2">
               {passed ? 'Congratulations!' : 'Keep Learning!'}
             </h1>
             
-            <div className="text-6xl md:text-7xl font-bold mb-4">
+            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 sm:mb-4">
               <span className={passed ? 'text-primary-500' : 'text-accent-500'}>
                 {score}%
               </span>
             </div>
             
-            <p className="text-xl text-gray-600 mb-6">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 px-2">
               You answered {correctAnswers} out of {questions.length} questions correctly
             </p>
 
             {passed ? (
-              <div className="bg-primary-50 border border-primary-200 rounded-xl p-6 mb-8">
-                <p className="text-primary-800 text-lg font-medium">
+              <div className="bg-primary-50 border border-primary-200 rounded-lg sm:rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 md:mb-8 mx-2 sm:mx-0">
+                <p className="text-primary-800 text-base sm:text-lg font-medium px-2 sm:px-0">
                   🎉 Outstanding, {userName}! You're a certified Blockchain Expert!
                 </p>
-                <p className="text-primary-600 mt-2">
+                <p className="text-primary-600 mt-2 text-sm sm:text-base px-2 sm:px-0">
                   Your exclusive NFT-style certificate is ready! Share your blockchain mastery with the world!
                 </p>
               </div>
             ) : (
-              <div className="bg-accent-50 border border-accent-200 rounded-xl p-6 mb-8">
-                <p className="text-accent-800 text-lg font-medium">
+              <div className="bg-accent-50 border border-accent-200 rounded-lg sm:rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 md:mb-8 mx-2 sm:mx-0">
+                <p className="text-accent-800 text-base sm:text-lg font-medium px-2 sm:px-0">
                   Great effort, {userName}! Keep learning and challenge yourself again.
                 </p>
-                <p className="text-accent-600 mt-2">
+                <p className="text-accent-600 mt-2 text-sm sm:text-base px-2 sm:px-0">
                   Score 80% or higher to earn your exclusive BlockchainIQ NFT certificate. You're on the right path!
                 </p>
               </div>
@@ -74,35 +74,37 @@ export default function ResultPage({ userName, score, onRestart, questions, answ
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
             <button
               onClick={onRestart}
-              className="flex items-center gap-3 bg-primary-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-600 transition-all duration-200 transform hover:scale-105"
+              className="flex items-center justify-center gap-2 sm:gap-3 bg-primary-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg hover:bg-primary-600 transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
             >
-              <RotateCcw className="w-5 h-5" />
-              Take New Challenge
+              <RotateCcw className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="hidden sm:inline">Take New Challenge</span>
+              <span className="sm:hidden">New Challenge</span>
             </button>
 
             {passed && (
-              <div className="relative">
+              <div className="relative w-full sm:w-auto">
                 <button
                   onClick={() => setShowShareMenu(!showShareMenu)}
-                  className="flex items-center gap-3 bg-accent-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-accent-600 transition-all duration-200 transform hover:scale-105"
+                  className="flex items-center justify-center gap-2 sm:gap-3 bg-accent-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg hover:bg-accent-600 transition-all duration-200 transform hover:scale-105 w-full sm:w-auto"
                 >
-                  <Share2 className="w-5 h-5" />
-                  Share Achievement
+                  <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="hidden sm:inline">Share Achievement</span>
+                  <span className="sm:hidden">Share</span>
                 </button>
 
                 {showShareMenu && (
-                  <div className="absolute top-full mt-2 left-0 bg-white rounded-xl shadow-xl border border-gray-200 p-2 z-10 animate-fade-in">
+                  <div className="absolute top-full mt-2 left-0 right-0 sm:left-0 sm:right-auto sm:w-48 bg-white rounded-lg sm:rounded-xl shadow-xl border border-gray-200 p-2 z-10 animate-fade-in">
                     <button
                       onClick={() => {
                         shareOnTwitter(userName, score);
                         setShowShareMenu(false);
                       }}
-                      className="flex items-center gap-3 w-full px-4 py-3 text-left hover:bg-blue-50 rounded-lg transition-colors"
+                      className="flex items-center gap-3 w-full px-3 sm:px-4 py-2 sm:py-3 text-left hover:bg-blue-50 rounded-lg transition-colors text-sm sm:text-base"
                     >
-                      <Twitter className="w-5 h-5 text-blue-500" />
+                      <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
                       <span>Share on Twitter</span>
                     </button>
                     <button
@@ -110,9 +112,9 @@ export default function ResultPage({ userName, score, onRestart, questions, answ
                         shareOnLinkedIn(userName, score);
                         setShowShareMenu(false);
                       }}
-                      className="flex items-center gap-3 w-full px-4 py-3 text-left hover:bg-blue-50 rounded-lg transition-colors"
+                      className="flex items-center gap-3 w-full px-3 sm:px-4 py-2 sm:py-3 text-left hover:bg-blue-50 rounded-lg transition-colors text-sm sm:text-base"
                     >
-                      <Linkedin className="w-5 h-5 text-blue-700" />
+                      <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-blue-700" />
                       <span>Share on LinkedIn</span>
                     </button>
                   </div>
