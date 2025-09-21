@@ -169,71 +169,75 @@ export default function SuccessCard({ userName, score }: SuccessCardProps) {
       }
 
       // Check if we're in a MiniApp context
+      let isMiniApp = false;
       try {
-        const context = await sdk.context;
+        if (typeof sdk !== 'undefined' && sdk.context) {
+          const context = await sdk.context;
+          isMiniApp = !!context;
+        }
+      } catch (sdkError) {
+        console.log('SDK not available, using regular browser methods');
+      }
+
+      if (isMiniApp && typeof window !== 'undefined') {
+        // We're in a MiniApp - use alternative methods
         
-        if (context && typeof window !== 'undefined') {
-          // We're in a MiniApp - use alternative methods
-          
-          // Method 1: Try Web Share API (works on mobile)
-          if (navigator.share) {
-            try {
-              // Convert data URL to blob for sharing
-              const response = await fetch(dataURL);
-              const blob = await response.blob();
-              const file = new File([blob], `BlockchainIQ_Certificate_${userName.replace(/\s+/g, '_')}.png`, { 
-                type: 'image/png' 
-              });
-              
-              await navigator.share({
-                title: 'My BlockchainIQ Certificate',
-                text: `I scored ${score}% on BlockchainIQ! 🏆`,
-                files: [file]
-              });
-              
-              setDownloadStatus('success');
-              return;
-            } catch (shareError) {
-              console.log('Share failed, trying alternative methods');
-            }
-          }
-
-          // Method 2: Copy to clipboard
-          if (navigator.clipboard && navigator.clipboard.write) {
-            try {
-              const response = await fetch(dataURL);
-              const blob = await response.blob();
-              await navigator.clipboard.write([
-                new ClipboardItem({ 'image/png': blob })
-              ]);
-              
-              alert('✅ Certificate copied to clipboard! You can paste it in any app.');
-              setDownloadStatus('success');
-              return;
-            } catch (clipboardError) {
-              console.log('Clipboard failed, using fallback');
-            }
-          }
-
-          // Method 3: Open in new window/tab
-          const newWindow = window.open();
-          if (newWindow) {
-            newWindow.document.write(`
-              <html>
-                <head><title>BlockchainIQ Certificate</title></head>
-                <body style="margin:0;padding:20px;background:#000;text-align:center;">
-                  <img src="${dataURL}" style="max-width:100%;height:auto;border-radius:10px;" />
-                  <p style="color:white;margin-top:20px;">Long press the image to save it to your device</p>
-                </body>
-              </html>
-            `);
-            newWindow.document.close();
+        // Method 1: Try Web Share API (works on mobile)
+        if (navigator.share) {
+          try {
+            // Convert data URL to blob for sharing
+            const response = await fetch(dataURL);
+            const blob = await response.blob();
+            const file = new File([blob], `BlockchainIQ_Certificate_${userName.replace(/\s+/g, '_')}.png`, { 
+              type: 'image/png' 
+            });
+            
+            await navigator.share({
+              title: 'My BlockchainIQ Certificate',
+              text: `I scored ${score}% on BlockchainIQ! 🏆`,
+              files: [file]
+            });
+            
             setDownloadStatus('success');
             return;
+          } catch (shareError) {
+            console.log('Share failed, trying alternative methods');
           }
         }
-      } catch (miniAppError) {
-        console.log('Not in MiniApp context, using traditional download');
+
+        // Method 2: Copy to clipboard
+        if (navigator.clipboard && navigator.clipboard.write) {
+          try {
+            const response = await fetch(dataURL);
+            const blob = await response.blob();
+            await navigator.clipboard.write([
+              new ClipboardItem({ 'image/png': blob })
+            ]);
+            
+            alert('✅ Certificate copied to clipboard! You can paste it in any app.');
+            setDownloadStatus('success');
+            return;
+          } catch (clipboardError) {
+            console.log('Clipboard failed, using fallback');
+          }
+        }
+
+        // Method 3: Open in new window/tab
+        const newWindow = window.open();
+        if (newWindow) {
+          newWindow.document.write(`
+            <html>
+              <head><title>BlockchainIQ Certificate</title></head>
+              <body style="margin:0;padding:20px;background:#000;text-align:center;">
+                <img src="${dataURL}" style="max-width:100%;height:auto;border-radius:10px;" />
+                <p style="color:white;margin-top:20px;">Long press the image to save it to your device</p>
+              </body>
+            </html>
+          `);
+          newWindow.document.close();
+          setDownloadStatus('success');
+          return;
+        }
       }
 
       // Fallback: Traditional download (for regular browsers)
