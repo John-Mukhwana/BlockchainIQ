@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   
   return {
     title: 'BlockchainIQ - Master Blockchain & Crypto Knowledge',
-    description: 'Ultimate blockchain and cryptocurrency quiz platform. Test your knowledge with 15 randomized questions from 80+ topics and earn your exclusive NFT-style certificate!',
+    description: 'Ultimate blockchain and cryptocurrency quiz platform. Test your knowledge with 15 randomized questions from 80 plus topics and earn your exclusive certificate',
     other: {
       'fc:miniapp': JSON.stringify({
         version: 'next',
