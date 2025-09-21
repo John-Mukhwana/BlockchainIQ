@@ -5,6 +5,20 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
+  trailingSlash: true,
+  async headers() {
+    return [
+      {
+        source: '/.well-known/farcaster.json',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/json',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
