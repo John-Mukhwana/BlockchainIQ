@@ -8,21 +8,27 @@ export async function generateMetadata(): Promise<Metadata> {
   const URL = process.env.NEXT_PUBLIC_URL
   
   return {
-    title: 'BlockchainIQ - Master Blockchain & Crypto Knowledge',
-    description: 'Ultimate blockchain and cryptocurrency quiz platform. Test your knowledge with 15 randomized questions from 80 plus topics and earn your exclusive certificate',
+    title: "BlockchainIQ - Master Blockchain & Crypto Knowledge",
+    description:
+      "Ultimate blockchain and cryptocurrency quiz platform. Test your knowledge with 15 randomized questions from 80 plus topics and earn your exclusive certificate",
     other: {
-      'fc:miniapp': JSON.stringify({
-        version: 'next',
+      "fc:miniapp": JSON.stringify({
+        version: "next",
         imageUrl: `${URL}/embed-image.png`,
         button: {
-          title: 'Start Quiz Challenge',
+          title: "Start Quiz Challenge",
           action: {
-            type: 'launch_miniapp',
-            name: 'BlockchainIQ',
+            type: "launch_miniapp",
+            name: "BlockchainIQ",
             url: URL,
             splashImageUrl: `${URL}/splash.png`,
-            splashBackgroundColor: '#22c55e',
+            splashBackgroundColor: "#22c55e",
           },
+          // Add button styling
+          backgroundColor: "#22c55e", // Green background
+          textColor: "#ffffff", // White text
+          borderColor: "#22c55e", // Green border
+          borderRadius: "8px", // Optional: rounded corners
         },
       }),
     },
