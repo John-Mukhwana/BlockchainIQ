@@ -14,13 +14,13 @@ export default function SuccessCard({ userName, score }: SuccessCardProps) {
   const [downloadStatus, setDownloadStatus] = useState<'idle' | 'generating' | 'success' | 'error'>('idle');
 
   const generateCertificateImage = async (): Promise<string | null> => {
-    if (!cardRef.current) return;
+    if (!cardRef.current) return null;
 
     try {
       // Create a canvas element
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
-      if (!ctx) return;
+      if (!ctx) return null;
 
       // Set canvas size for NFT-style certificate
       canvas.width = 1000;
