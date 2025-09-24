@@ -1,5 +1,26 @@
 import { questions, Question } from '@/data/questions';
 
+// Function to shuffle options for a question and update correct answer index
+function shuffleQuestionOptions(question: Question, seededRandom: () => number): Question {
+  const originalCorrectAnswer = question.options[question.correctAnswer];
+  const shuffledOptions = [...question.options];
+  
+  // Fisher-Yates shuffle with seeded random
+  for (let i = shuffledOptions.length - 1; i > 0; i--) {
+    const j = Math.floor(seededRandom() * (i + 1));
+    [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+  }
+  
+  // Find the new index of the correct answer
+  const newCorrectAnswerIndex = shuffledOptions.findIndex(option => option === originalCorrectAnswer);
+  
+  return {
+    ...question,
+    options: shuffledOptions,
+    correctAnswer: newCorrectAnswerIndex
+  };
+}
+
 // Enhanced randomization with user session
 export function getDailyQuestions(): Question[] {
   // Create a unique seed for each user session
@@ -21,7 +42,12 @@ export function getDailyQuestions(): Question[] {
     [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
   }
 
-  return shuffledQuestions.slice(0, 15); // Increased to 15 questions
+  // Shuffle options for each question to randomize correct answer positions
+  const questionsWithShuffledOptions = shuffledQuestions.slice(0, 15).map(question => 
+    shuffleQuestionOptions(question, seededRandom)
+  );
+
+  return questionsWithShuffledOptions;
 }
 
 export function calculateScore(answers: number[], questions: Question[]): number {
