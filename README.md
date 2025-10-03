@@ -227,14 +227,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - **GitHub Issues**: [Report bugs or request features](https://github.com/John-Mukhwana/BlockchainIQ/issues)
-- **Twitter**: [@YourTwitter](https://twitter.com/cypherpulse0)
+- **Twitter**: [@cypherpulse0](https://twitter.com/cypherpulse0)
 
 
 ---
 
 **Ready to test your blockchain knowledge? 🚀**
 
-[**🎯 Start Quiz Challenge →**](https://your-domain.com)
+[**🎯 Start Quiz Challenge →**](https://blockchain-iq.vercel.app)
 
 ---
 
